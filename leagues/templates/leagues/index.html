@@ -4,29 +4,111 @@
 		<title>Sports Leagues</title>
 	</head>
 	<body>
-		<h1>Leagues</h1>
+		<h1>Baseball Leagues</h1> <!-- Baseball leagues -->
 		<ol>
-			{% for league in leagues %}
+			{% for league in baseball_leagues %}
 				<li>{{league.name}}</li>
-			{% empty %}
-				<p>No leagues found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
 		</ol>
-		<h1>Teams</h1>
+
+		<h1>Women's Leagues</h1> <!-- Womens' leagues -->
 		<ol>
-			{% for team in teams %}
+			{% for league in womens_leagues %}
+				<li>{{league.name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Hockey Leagues</h1> <!-- Hockey leagues -->
+		<ol>
+			{% for league in hockey_leagues %}
+				<li>{{league.name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Leagues that aren't Football</h1> <!-- Leagues that are not football -->
+		<ol>
+			{% for league in no_football_leagues %}
+				<li>{{league.name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Conferences</h1> <!-- Conferences -->
+		<ol>
+			{% for league in conference_leagues %}
+				<li>{{league.name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Atlantic Conferences</h1> <!-- Atlantic Leagues -->
+		<ol>
+			{% for league in atlantic_leagues %}
+				<li>{{league.name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Dallas Teams</h1> <!-- Teams in Dallas -->
+		<ol>
+			{% for team in dallas_teams %}
 				<li>{{team.location}} {{team.team_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
 		</ol>
-		<h1>Players</h1>
+
+		<h1>Teams Named Raptors</h1> <!-- Teams names Raptors -->
 		<ol>
-			{% for player in players %}
-				<li>{{player.first_name}} {{player.last_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+			{% for team in raptors_teams %}
+				<li>{{team.location}} {{team.team_name}}</li>
 			{% endfor %}
 		</ol>
+
+		<h1>Teams with City in the Local</h1> <!-- Teams with City in the local -->
+		<ol>
+			{% for team in city_teams %}
+				<li>{{team.location}} {{team.team_name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Teams names that begin with T</h1> <!-- Teams names that begin with T -->
+		<ol>
+			{% for team in t_teams %}
+				<li>{{team.location}} {{team.team_name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Teams - Reverse Order</h1> <!-- Teams names that begin with T -->
+		<ol>
+			{% for team in rev_team_order %}
+				<li>{{team.location}} {{team.team_name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Players: Last Name = Cooper</h1>
+		<ol>
+			{% for player in cooper_players %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Players: First Name = Joshua</h1>
+		<ol>
+			{% for player in joshua_players %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>NO Joshua Coopers</h1>
+		<ol>
+			{% for player in no_joshua_coopers %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Alexanders and Wyatts</h1>
+		<ol>
+			{% for player in alexander_and_wyatt %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% endfor %}
+		</ol>
+
+
 	</body>
 </html>
