@@ -4,6 +4,36 @@
 		<title>Sports Leagues</title>
 	</head>
 	<body>
+		
+		<h1>American Football League - Teams</h1> 
+		<ol>
+			{% for team in AFL_teams.teams.all %}
+				<li>{{team.location}} {{team.team_name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Seattle Hurricans - Players</h1> 
+		<ol>
+			{% for player in SeattleH_Players.curr_players.all %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>AAofBaseball_players- Players</h1> 
+		<ol>
+			{% for team in AAofBaseball_players.teams.all %}
+				{% for player in team.curr_players.all %}
+					<li>{{player.first_name}} {{player.last_name}}</li>
+				{% endfor %}
+			{% endfor %}
+		</ol>
+
+
+
+
+		
+
+
 		<h1>Baseball Leagues</h1> <!-- Baseball leagues -->
 		<ol>
 			{% for league in baseball_leagues %}
