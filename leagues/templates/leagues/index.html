@@ -21,13 +21,71 @@
 
 		<h1>AAofBaseball_players- Players</h1> 
 		<ol>
-			{% for team in AAofBaseball_players.teams.all %}
+			{% for team in NAIH_players.teams.all %}
+			{% comment %}<!-- {% for team in AAofBaseball_players.teams.all %} -->{% endcomment %}
 				{% for player in team.curr_players.all %}
 					<li>{{player.first_name}} {{player.last_name}}</li>
 				{% endfor %}
 			{% endfor %}
 		</ol>
 
+		<h1>NAIH_players- Lopez Players</h1> 
+		<ol>
+			{% for team in NAIH_players.teams.all %}
+				{% for player in team.curr_players.all %}
+					{% if player.last_name == "Thompson" %}
+						<li>{{player.first_name}} {{player.last_name}}</li>
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+		</ol>
+
+		<h1>All Football Players</h1>
+		<ol>
+			{% for player in players %}
+				{% if player.curr_team.league.sport == "Football" %}
+					<li>{{player.first_name}} {{player.last_name}}</li>
+				{% endif %}
+			{% endfor %}
+		</ol>
+
+		<h1>Teams with a Sohphia</h1> 
+		<ol>
+			{% for player in Sophia %}
+				<li>{{ player.curr_team.location }} {{ player.curr_team.team_name }}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Leagues with a Sohphia</h1> 
+		<ol>
+			{% for player in Sophia %}
+				<li>{{ player.curr_team.league.name }}</li>
+			{% endfor %}
+		</ol>
+
+		<h1>Coleman's not on the Manitoba Penquins</h1>
+		<ol>
+			{% for player in Coleman %}
+				{% if player.curr_team.id != 47 %}
+					<li>{{player.first_name}} {{player.last_name}} on the {{player.curr_team.location}} {{player.curr_team.team_name}}</li>
+				{% endif %}
+			{% endfor %}
+		</ol>
+
+		<h1>All of Ben Coleman's Past and Presnt Teams</h1>
+		<ol>
+			{% for team in Ben_Coleman.all_teams.all %}
+				<li>{{team.location}} {{team.team_name}}</li>
+			{% endfor %}
+		</ol>
+
+		<!-- number 10 -->
+		<h1>Every Player Ever on the Michigan Clippers</h1> 
+		<ol>
+			{% for player in Michigan_Clippers.all_players.all %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% endfor %}
+		</ol>
 
 
 

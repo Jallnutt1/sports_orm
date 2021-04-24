@@ -12,6 +12,12 @@ def index(request):
 		"AFL_teams":League.objects.get(name="American Football League"),
 		"SeattleH_Players":Team.objects.get(location="Seattle", team_name="Hurricanes"),
 		"AAofBaseball_players":League.objects.get(name="Atlantic Association of Baseball"),
+		"NAIH_players":League.objects.get(name="National Association of Ice Hockey"),
+		"Sophia":Player.objects.filter(first_name="Sophia"),
+		"Coleman":Player.objects.filter(last_name="Coleman"),
+		"Ben_Coleman":Player.objects.get(first_name="Benjamin", last_name="Coleman"),
+		# Number 10
+		"Michigan_Clippers":Team.objects.get(location="Michigan", team_name="Clippers"),
 
 		
 
