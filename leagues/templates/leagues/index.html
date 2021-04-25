@@ -87,8 +87,44 @@
 			{% endfor %}
 		</ol>
 
+		<h1>Former Georgia Titans - No Current</h1>
+		<ol>
+			{% for player in Georgia_Titans %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% endfor %}
+		</ol>
 
+		<h1>Jacob Cooper's Former Teams - Not Current</h1>
+		<ol>
+			{% for team in Jacob_Cooper.all_teams.all %}
+				{% if team.id != Jacob_Cooper.curr_team.id %}
+					<li>{{team.location}} {{team.team_name}}</li>
+				{% endif %}
+			{% endfor %}
+		</ol>
 
+		<h1>Chrises who played in the NCAL</h1>
+		<ol>
+			{% for team in Chris_NCAL.teams.all %}
+				{% for player in team.all_players.all %}
+					{% if player.first_name == "Henry" %}
+						<li>{{player.first_name}} {{player.last_name}} player for {{team.location}} {{team.team_name}}</li>
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+		</ol>
+
+		<!-- Number 14 - COULD NOT GET IT TO WORK -->
+		<h1>Teams with 12 or more players EVER</h1> 
+		<ol>
+			{% for team in teams %}
+				{% if len(team.all_players.all)>=12 %}
+					<li>{{team.team_name}} {{team.location}}</li>
+				{% endif %}
+			{% endfor %}
+		</ol>
+
+		<!-- Missing number 15 -->
 		
 
 

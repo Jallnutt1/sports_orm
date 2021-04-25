@@ -18,8 +18,11 @@ def index(request):
 		"Ben_Coleman":Player.objects.get(first_name="Benjamin", last_name="Coleman"),
 		# Number 10
 		"Michigan_Clippers":Team.objects.get(location="Michigan", team_name="Clippers"),
+		"Georgia_Titans":Team.objects.get(location="Georgia", team_name="Titans").all_players.all().difference(Team.objects.get(location="Georgia", team_name="Titans").curr_players.all()),
+		"Jacob_Cooper":Player.objects.get(id=21),
+		"Chris_NCAL":League.objects.get(id=4),
 
-		
+	
 
 		"baseball_leagues": League.objects.filter(sport="Baseball"),
 		"womens_leagues": League.objects.filter(name__contains="Womens"),
